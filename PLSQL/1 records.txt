@@ -1,0 +1,92 @@
+******************************************************************************************************
+1. Write a PL/SQL record to retrieve customer details whose id is 105.
+******************************************************************************************************
+declare 
+type cust is record
+(
+cust_id int,
+first_name varchar(100),
+middle_name varchar(100),
+last_name varchar(100),
+contact varchar(100),
+pan_no varchar(100)
+);
+c cust;
+begin
+select cust_id, first_name, middle_name, last_name, contact, pan_no into c from customer where cust_id = 105;
+dbms_output.put_line('Customer ID: '||c.cust_id||' Fist Name: '||c.first_name||' Middle Name: '||c.Middle_name||' Last Name: '||c.last_name||'Phone'||c.contact||'Pan'||c.pan_no);
+end;
+******************************************************************************************************
+
+
+******************************************************************************************************
+2. Write a PL/SQL record to retrieve transaction details for the transaction of Rs 5000.
+******************************************************************************************************
+declare 
+type trans is record
+(
+trans_id int,
+date_of_trans date,
+trans_type varchar(100),
+amount int
+);
+t trans;
+begin
+select trans_id, date_of_trans, trans_type, amount into t from transactions where amount= 5000;
+dbms_output.put_line('Transaction Id: '||t.trans_id||' Date: '||t.date_of_trans||' Trans type: '||t.trans_type||' Amount: '||t.amount);
+end;
+/
+******************************************************************************************************
+
+
+******************************************************************************************************
+3. Write a PL/SQL record to retrieve employee details of employee id 219.
+******************************************************************************************************
+declare
+emp empployee%rowtype;
+begin
+select * into emp from employee where emp_id= 219;
+dbms_output.put_line('Emp Id: '||emp.emp_id||' Emp Type: '||emp.designation||' Contact: '||emp.contact);
+end;  
+/
+******************************************************************************************************
+
+
+******************************************************************************************************
+4. Write a PL/SQL record to retrieve details of customer Atal.
+******************************************************************************************************
+declare 
+type cus is record
+(
+cust_id int,
+first_name varchar(100),
+contact varchar(100)
+);
+c cus;
+begin
+select cust_id, first_name, contact into c from customer where first_name= 'Atal';
+dbms_output.put_line('Customer ID: '||c.cust_id||' Customer Name: '||c.first_name||' Phone: '||c.contact);
+end;
+/
+******************************************************************************************************
+
+
+******************************************************************************************************
+5. Write a PL/SQL record to retrieve details of employee where name is Sammy .
+******************************************************************************************************
+declare 
+type emp is record
+(
+emp_id int,
+first_name varchar(100),
+last_name varchar(100),
+designation varchar(100),
+gender varchar(100)
+);
+e emp;
+begin
+select emp_id, first_name, last_name, designation, gender into e from employee where first_name= 'Sammy';
+dbms_output.put_line('Employee ID: '||e.emp_id||' First Name: '||e.first_name||' Last name: '||e.last_name||' Designation: '||e.designation||' Gender '||e.gender);
+end;
+/
+***********************************

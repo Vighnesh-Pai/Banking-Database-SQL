@@ -1,0 +1,110 @@
+******************************************************************************************************
+1. Write a PL/SQL cursor to retrieve details of trasncations type Cash Transcation .
+******************************************************************************************************
+declare
+cursor pro_cur is select trans_id, amount, trans_type from transactions where trans_type= 'Cash Transaction';
+a transactions.trans_id%type;
+b transactions.amount%type;
+c transactions.trans_type%type;
+begin
+open pro_cur;
+loop
+fetch pro_cur into a,b,c;
+exit when pro_cur%notfound;
+dbms_output.put_line('Transcation ID: '||a||'Amount : '||b||' Transaction type : '||c);
+end loop;
+close pro_cur;
+end;
+/
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+2. Write a PL/SQL cursor to retrieve details of customer who lives in Panchkula.
+******************************************************************************************************
+declare
+cursor cus_cur is select cust_id, first_name,middle_name,last_name, city from customer where city= 'Panchkula';
+g customer.cust_id%type;
+h customer.first_name%type;
+i customer.middle_name%type;
+j customer.last_name%type;
+k customer.city%type;
+begin
+open cus_cur;
+loop
+fetch cus_cur into g,h,i,j,k;
+exit when cus_cur%notfound;
+dbms_output.put_line('Customer ID: '||g||' First Name: '||h||'Middle Name: '||i||'Last Name: '||j||' City: '||k);
+end loop;
+close cus_cur;
+end;
+/
+******************************************************************************************************
+
+
+******************************************************************************************************
+3. Write a PL/SQL cursor to retrieve loan details which have Car Loan.
+******************************************************************************************************
+declare
+cursor o_cur is select loan_id, loan_type,total_amount from loan_account where loan_type= 'Car Loan';
+j loan_account.loan_id%type;
+k loan_account.loan_type%type;
+l loan_account.total_amount%type;
+begin
+open o_cur;
+loop
+fetch o_cur into j,k,l;
+exit when o_cur%notfound;
+dbms_output.put_line('Loan ID: '||j||' Loan_type: '||k||' Total Amount: '||l);
+end loop;
+close o_cur;
+end;
+/
+******************************************************************************************************
+
+
+******************************************************************************************************
+4. Write a PL/SQL cursor to retrieve details of customer who lives in Panaji.
+******************************************************************************************************
+declare
+cursor cus_cur is select cust_id, first_name,middle_name,last_name, city from customer where city= 'Panaji';
+g customer.cust_id%type;
+h customer.first_name%type;
+i customer.middle_name%type;
+j customer.last_name%type;
+k customer.city%type;
+begin
+open cus_cur;
+loop
+fetch cus_cur into g,h,i,j,k;
+exit when cus_cur%notfound;
+dbms_output.put_line('Customer ID: '||g||' First Name: '||h||'Middle Name: '||i||'Last Name: '||j||' City: '||k);
+end loop;
+close cus_cur;
+end;
+/
+******************************************************************************************************
+
+
+******************************************************************************************************
+5. Write a PL/SQL cursor to retrieve loan details which have Office Loan.
+******************************************************************************************************
+declare
+cursor o_cur is select loan_id, loan_type,total_amount from loan_account where loan_type= 'Office Loan';
+j loan_account.loan_id%type;
+k loan_account.loan_type%type;
+l loan_account.total_amount%type;
+begin
+open o_cur;
+loop
+fetch o_cur into j,k,l;
+exit when o_cur%notfound;
+dbms_output.put_line('Loan ID: '||j||' Loan_type: '||k||' Total Amount: '||l);
+end loop;
+close o_cur;
+end;
+/
+******************************************************************************************************
+
+

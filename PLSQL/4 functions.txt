@@ -1,0 +1,124 @@
+******************************************************************************************************
+1. Write a PL/SQL function to retrieve id of Kanika.
+******************************************************************************************************
+create or replace function dis(name in varchar)
+return int
+as
+cid int;
+begin
+select cust_id into cid from customer where first_name=name;
+return cid;
+ end;
+/
+
+Output:
+Function created.
+
+
+Run the below command
+select dis('Kanika') from dual;
+
+DIS('KANIKA')
+-----------------
+           119
+******************************************************************************************************
+
+
+******************************************************************************************************
+2. Write a PL/SQL function to retrieve name of employee with id 206. 
+******************************************************************************************************
+create or replace function dis(e_id in int)
+return varchar
+as
+emp_name varchar(100);
+begin
+select first_name into emp_name from employee where emp_id=e_id;
+return emp_name;
+end;
+/
+
+Output:
+Function created.
+
+Run the below command;
+select dis(206) from dual;
+
+DIS(206)
+------------------------------------------------
+Suresh
+******************************************************************************************************
+
+
+******************************************************************************************************
+3. Write a PL/SQL function to retrieve transaction ammount of trans id 1115.
+******************************************************************************************************
+create or replace function dis(trans in int)
+return int
+as
+amt int;
+begin
+select amount into amt from transaction where trans=trans_id;
+return amount;
+end;
+/
+
+Output:
+Function created.
+
+Run the below command;
+select dis('1115') from dual;
+
+DIS('1115')
+-------------
+        200000
+******************************************************************************************************
+
+
+******************************************************************************************************
+4. Write a PL/SQL function to retrieve transaction id with date 11-10-2015.
+******************************************************************************************************
+create or replace function dis(dt date)
+return date
+as
+date_of_trans date;
+begin
+select trans_id into date_of_trans from transactions where dt=date_of_trans;
+return trans_id;
+end;
+/
+
+Output:
+Function created.
+
+Run the below command;
+select dis(11-10-2015) from dual;
+
+DIS(11-10-2015)
+------------------------------------------------
+1114
+******************************************************************************************************
+
+
+******************************************************************************************************
+5. Write a PL/SQL function to retrieve name of employee with id 210. 
+******************************************************************************************************
+create or replace function dis(e_id in int)
+return varchar
+as
+emp_name varchar(100);
+begin
+select first_name into emp_name from employee where emp_id=e_id;
+return emp_name;
+end;
+/
+
+Output:
+Function created.
+
+Run the below command;
+select dis(210) from dual;
+
+DIS(210)
+------------------------------------------------
+Suresh
+******************************************************************************************************

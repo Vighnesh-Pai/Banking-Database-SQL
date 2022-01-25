@@ -1,0 +1,76 @@
+******************************************************************************************************
+1. Write a PL/SQL tigger to update the salary of Employee id 201 to 150000.
+******************************************************************************************************
+create table e_log
+(
+essn int,
+new_sal float,
+old_sal float
+);
+
+select * from employee table;
+
+create or replace trigger sal_change
+     after update of salary on employee
+     for each row
+     begin
+    insert into e_log values(:new.emp_id,:new.salary,:old.salary);
+    end;
+    /
+
+update employee set salary=150000 where emp_id= 201;
+
+select * from e_log;
+******************************************************************************************************
+
+
+2. Write a PL/SQL tigger to stop insertion in employee table if the age is greater than 60.
+******************************************************************************************************
+CREATE OR REPLACE TRIGGER CheckAge 
+BEFORE 
+INSERT OR UPDATE ON employee 
+FOR EACH ROW 
+BEGIN 
+	IF :new.age>60 THEN 
+		raise_application_error(-20001, 'Sorry for the inconvinience, we are recruiting employee 
+					below the age of 60'); 
+	END IF; 
+END;
+insert into employee values(221,'Samar','NsH#12','Nitin','Dev','Shukla','Branch Manager','9123521223',
+'Male','#42,Silver Orchid ,Gandhinagar','Indore','Madhya Pradesh',4526,'samar@gmail.com',28000,'India',61);
+******************************************************************************************************
+
+
+3. Write a PL/SQL tigger to give type of transaction taken place as per given customer id.
+******************************************************************************************************
+create or replace function fun6( custid in number)
+return string
+as
+typeoftrans varchar(100);
+transamt int;
+begin
+ SELECT trans_type,amount INTO typeoftrans,transamt FROM transactions WHERE TCcust_id=custid;
+   dbms_output.put_line('The type of transaction:'||typeoftrans);
+   dbms_output.put_line('The amount of transaction:'||transamt);
+ return typeoftrans;
+end;
+
+select fun6(106) from dual;
+******************************************************************************************************
+
+
+4. Write a PL/SQL tigger to stop insertion in employee table if the age is greater than 50.
+******************************************************************************************************
+CREATE OR REPLACE TRIGGER CheckAge 
+BEFORE 
+INSERT OR UPDATE ON employee 
+FOR EACH ROW 
+BEGIN 
+	IF :new.age>50 THEN 
+		raise_application_error(-20001, 'Sorry for the inconvinience, we are recruiting employee 
+					below the age of 50'); 
+	END IF; 
+END;
+insert into employee values(221,'Samar','NsH#12','Nitin','Dev','Shukla','Branch Manager','9123521223',
+'Male','#42,Silver Orchid ,Gandhinagar','Indore','Madhya Pradesh',4526,'samar@gmail.com',28000,'India',61);
+******************************************************************************************************

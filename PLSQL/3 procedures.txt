@@ -1,0 +1,119 @@
+******************************************************************************************************
+1. Write a PL/SQL procedure to find the city of Employee.
+******************************************************************************************************
+create or replace procedure p1(first_name in varchar)
+  as
+ location varchar(30);
+begin
+select city into location from employee where first_name=name;
+ dbms_output.put_line('City of the Employee with Name '||name||' is '||location);
+ end;
+ /
+
+Procedure created.
+
+Now run the below command
+execute p1('Nikita');
+
+Output:
+City of the Employee with Name Nikita is Indore
+
+PL/SQL procedure successfully completed.
+******************************************************************************************************
+
+
+******************************************************************************************************
+2. Write a PL/SQL procedure to find the contact number of customer Jigneesh.
+******************************************************************************************************
+create or replace procedure p2(cusname in varchar)
+  as
+ contact varchar(100);
+begin
+select contact into contact from customer where first_name=cusname;
+ dbms_output.put_line('Contact Number of Customer with Name '||cusname||' is '||contact);
+ end;
+ /
+
+Procedure created.
+
+Now run the below command
+execute p2('Jigneesh');
+
+Output:
+Contact Number of Customer with Name Jigneesh is 6267941780
+
+PL/SQL procedure successfully completed.
+******************************************************************************************************
+
+
+******************************************************************************************************
+3. Write a PL/SQL procedure to find the loan type of the customer with Loan id 403.
+******************************************************************************************************
+create or replace procedure p3(l_id in int)
+  as
+ ltype varchar(100);
+begin
+select loan_type into ltype from loan_account where loan_id= lid;
+ dbms_output.put_line('Loan Type of Customer with Loan Id  '||l_id||' is '||ltype);
+ end;
+ /
+
+Procedure created.
+
+Now run the below command
+execute p3(403);
+
+Output:
+Loan Type of Customer with Loan Id 403 is Study Loan
+
+PL/SQL procedure successfully completed.
+******************************************************************************************************
+
+
+******************************************************************************************************
+4. Write a PL/SQL procedure to find the city of Employee.
+******************************************************************************************************
+create or replace procedure p1(first_name in varchar)
+  as
+ location varchar(30);
+begin
+select city into location from employee where first_name=name;
+ dbms_output.put_line('City of the Employee with Name '||name||' is '||location);
+ end;
+ /
+
+Procedure created.
+
+Now run the below command
+execute p1('Nikita');
+
+Output:
+City of the Employee with Name Divit is Indore
+
+PL/SQL procedure successfully completed.
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+5. Write a PL/SQL procedure to find the loan type of the customer with Loan id 410.
+******************************************************************************************************
+create or replace procedure p3(l_id in int)
+  as
+ ltype varchar(100);
+begin
+select loan_type into ltype from loan_account where loan_id= lid;
+ dbms_output.put_line('Loan Type of Customer with Loan Id  '||l_id||' is '||ltype);
+ end;
+ /
+
+Procedure created.
+
+Now run the below command
+execute p3(410);
+
+Output:
+Loan Type of Customer with Loan Id 410 is Study Loan
+
+PL/SQL procedure successfully completed.
+******************************************************************************************************
