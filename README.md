@@ -1,1 +1,1 @@
-# Banking-Database-SQL
+# Banking-Database-SQL Queries
